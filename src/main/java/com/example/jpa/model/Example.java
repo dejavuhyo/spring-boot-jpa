@@ -12,7 +12,6 @@ import org.hibernate.annotations.DynamicUpdate;
 @Data
 @DynamicInsert
 @DynamicUpdate
-@NoArgsConstructor
 @Entity(name = "MemberEntity")
 @Table(name = "member", schema = "public")
 public class Example {
