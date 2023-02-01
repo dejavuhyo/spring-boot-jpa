@@ -12,7 +12,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Data
 @DynamicInsert
 @DynamicUpdate
-@Entity(name = "MemberEntity")
+@Entity(name = "Example")
 @Table(name = "member", schema = "public")
 public class Example {
     @Id
