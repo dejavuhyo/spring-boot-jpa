@@ -1,6 +1,6 @@
 package com.example.jpa.service;
 
-import com.example.jpa.model.Example;
+import com.example.jpa.entity.Example;
 
 import java.util.List;
 import java.util.Optional;
