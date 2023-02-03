@@ -68,7 +68,7 @@ public class ExampleController {
      */
     @@PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void put(@RequestBody ExampleDto exampleDto, @PathVariable("id") String id) {
+    public void put(@PathVariable("id") String id, @RequestBody ExampleDto exampleDto) {
         exampleDto.setId(id);
         exampleService.put(convertToEntity(exampleDto));
     }
