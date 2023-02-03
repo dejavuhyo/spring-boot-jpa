@@ -14,24 +14,24 @@ Spring Boot JPA 예제이다. 포트는 8080을 사용한다.
 ### 1) 전체 조회
 
 * GET
-  - http://localhost:8080/member/
+  - http://localhost:8080/jpa/
 
 ### 2) ID 조회
 
 * GET
-  - http://localhost:8080/member/1
+  - http://localhost:8080/jpa/1
 
 ### 3) 저장
 
 * POST
-  - http://localhost:8080/member
+  - http://localhost:8080/jpa/
 
 ### 4) 수정
 
 * PUT
-  - http://localhost:8080/member/1
+  - http://localhost:8080/jpa/1
 
 ### 5) 삭제
 
 * DELETE
-  - http://localhost:8080/member/1
+  - http://localhost:8080/jpa/1
