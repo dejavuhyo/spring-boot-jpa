@@ -1,6 +1,6 @@
 package com.example.jpa.service.impl;
 
-import com.example.jpa.model.Example;
+import com.example.jpa.entity.Example;
 import com.example.jpa.repository.ExampleRepository;
 import com.example.jpa.service.ExampleService;
 import org.springframework.beans.factory.annotation.Autowired;
