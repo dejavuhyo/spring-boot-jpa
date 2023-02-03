@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
-@RequestMapping(path = "/member")
+@RequestMapping(path = "/jpa")
 public class ExampleController {
     @Autowired
     ExampleService exampleService;
