@@ -10,9 +10,9 @@ public interface ExampleService {
 
     Optional<Example> findById(String id);
 
-    void save(Example demo);
+    void save(Example example);
 
-    void put(Example demo);
+    void put(Example example);
 
     void deleteById(String id);
 }
