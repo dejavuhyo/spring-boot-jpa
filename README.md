@@ -9,6 +9,8 @@ Spring Boot JPA 예제이다. 포트는 8080을 사용한다.
 
 * spring-boot 3.0.1
 
+* modelmapper 3.1.1
+
 ## 3. API 실행
 
 ### 1) 전체 조회
