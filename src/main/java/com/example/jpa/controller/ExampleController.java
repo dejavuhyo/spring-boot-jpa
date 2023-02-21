@@ -1,7 +1,6 @@
 package com.example.jpa.controller;
 
 import com.example.jpa.dto.ExampleDto;
-import com.example.jpa.entity.Example;
 import com.example.jpa.service.ExampleService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -19,8 +18,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -39,10 +36,7 @@ public class ExampleController {
     @GetMapping("/")
     @ResponseBody
     public List<ExampleDto> findAll() {
-        List<Example> result = exampleService.findAll();
-        return result.stream()
-                .map(this::convertListToDto)
-                .collect(Collectors.toList());
+        return exampleService.findAll();
     }
 
     /**
@@ -54,7 +48,7 @@ public class ExampleController {
     @GetMapping("/{id}")
     @ResponseBody
     public ExampleDto findById(@PathVariable("id") String id) {
-        return convertToDto(exampleService.findById(id));
+        return exampleService.findById(id);
     }
 
     /**
@@ -65,8 +59,8 @@ public class ExampleController {
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void save(@RequestBody ExampleDto exampleDto) {
-        exampleService.save(convertToEntity(exampleDto));
+    public ExampleDto save(@RequestBody ExampleDto exampleDto) {
+        return exampleService.save(exampleDto);
     }
 
     /**
@@ -76,9 +70,9 @@ public class ExampleController {
      */
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void put(@PathVariable("id") String id, @RequestBody ExampleDto exampleDto) {
+    public ExampleDto put(@PathVariable("id") String id, @RequestBody ExampleDto exampleDto) {
         exampleDto.setId(id);
-        exampleService.put(convertToEntity(exampleDto));
+        return exampleService.put(exampleDto);
     }
 
     /**
@@ -89,35 +83,5 @@ public class ExampleController {
     @DeleteMapping(value = "/{id}")
     public void deleteById(@PathVariable("id") String id) {
         exampleService.deleteById(id);
-    }
-
-    /**
-     * entity to dto
-     *
-     * @param example
-     * @return
-     */
-    private ExampleDto convertToDto(Optional<Example> example) {
-        return modelMapper.map(example, ExampleDto.class);
-    }
-
-    /**
-     * entity list to dto
-     *
-     * @param example
-     * @return
-     */
-    private ExampleDto convertListToDto(Example example) {
-        return modelMapper.map(example, ExampleDto.class);
-    }
-
-    /**
-     * dto to entity
-     *
-     * @param demoDto
-     * @return
-     */
-    private Example convertToEntity(ExampleDto demoDto) {
-        return modelMapper.map(demoDto, Example.class);
     }
 }
