@@ -1,18 +1,17 @@
 package com.example.jpa.service;
 
-import com.example.jpa.entity.Example;
+import com.example.jpa.dto.ExampleDto;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ExampleService {
-    List<Example> findAll();
+    List<ExampleDto> findAll();
 
-    Optional<Example> findById(String id);
+    ExampleDto findById(String id);
 
-    void save(Example example);
+    ExampleDto save(ExampleDto exampleDto);
 
-    void put(Example example);
+    ExampleDto put(ExampleDto exampleDto);
 
     void deleteById(String id);
 }
